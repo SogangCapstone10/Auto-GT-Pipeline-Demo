@@ -1,4 +1,4 @@
-# 🛠️ Auto-GT-Pipeline & Evaluation Framework
+# Auto-GT-Pipeline & Evaluation Framework
 
 <div align="center">
   <img src="https://img.shields.io/badge/Docker-Environment-blue?logo=docker" alt="Docker">
@@ -31,7 +31,7 @@
 
 ---
 
-## 🐳 환경 구축 (Docker Setup)
+## 환경 구축 (Docker Setup)
 
 이 프로젝트는 `base` 환경과 `af3` 환경이 공존하는 특수한 구조이므로, 반드시 제공된 Dockerfile을 사용해야 합니다.
 
@@ -45,7 +45,7 @@ docker run -it --gpus all \
   -e OPENAI_API_KEY="sk-proj-..." \
   auto-gt-pipeline:latest
 ```
-## 🚀 사용 가이드 (Usage Scenarios)
+## 사용 가이드 (Usage Scenarios)
 
 ### Scenario A: 데이터셋 대량 자동 구축 (Headless)
 
