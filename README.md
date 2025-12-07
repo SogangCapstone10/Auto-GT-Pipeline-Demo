@@ -44,7 +44,7 @@ docker run -it --gpus all \
   -v $(pwd)/data:/workspace/data \
   -e OPENAI_API_KEY="sk-proj-..." \
   auto-gt-pipeline:latest
-
+```
 ## 🚀 사용 가이드 (Usage Scenarios)
 
 ### Scenario A: 데이터셋 대량 자동 구축 (Headless)
@@ -54,17 +54,17 @@ UI 없이 폴더 내 모든 오디오 파일에 대해 캡션을 생성하고 �
 ```bash
 # AUDIO_DIRECTORY 경로를 pipeline.py에서 수정 후 실행
 python pipeline.py
-
+```
 ### Scenario B: 모델 벤치마크 평가 (Evaluation)
 
 ```bash
 # 비교 대상 모델 결과 파일 준비 
 python evaluation_model.py
-
+```
 ### Scenario C: UI 기반 시연 (Interactive Demo)
 웹 인터페이스를 통해 시스템을 시연하거나 데이터를 선별하려면 Ui_pipeline.py를 실행합니다.
 
 ```bash
 streamlit run Ui_pipeline.py
 
-
+```
