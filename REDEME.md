@@ -14,7 +14,7 @@
 
 이 레포지토리는 **LALM(Audio Flamingo 3)과 LLM(GPT-4o)을 결합한 오디오 캡션 자동 생성 파이프라인**과, 이를 통해 구축된 데이터셋을 기반으로 모델 성능을 정량적으로 검증하는 **벤치마크 평가 시스템**입니다.
 
-복잡한 의존성(CUDA 버전, AF3 가상환경, Metric 라이브러리 충돌 등)을 해결하기 위해 **Docker** 기반의 통합 환경을 제공합니다. 사용자는 이 환경 내에서 **데이터셋 구축(Generation)**부터 **모델 평가(Evaluation)**까지 원스톱으로 수행할 수 있습니다.
+복잡한 의존성(CUDA 버전, AF3 가상환경, Metric 라이브러리 충돌 등)을 해결하기 위해 **Docker** 기반의 통합 환경을 제공합니다. 사용자는 이 환경 내에서 데이터셋 구축(Generation)부터 모델 평가(Evaluation)까지 한번에 수행할 수 있습니다.
 
 ---
 
@@ -24,7 +24,7 @@
 
 | 파일명 | 분류 | 상세 설명 |
 |:---:|:---:|---|
-| **`Dockerfile`** | **Environment** | **All-in-One 환경 구축 정의서**<br>AF3(LALM), MACE(Filtering), CLAIR-A, KoBERT 등 필요한 모든 라이브러리를 포함합니다. CUDA 12.1.1 호환성 및 `torchaudio` 충돌 문제를 해결한 최종 이미지입니다. |
+| **`Dockerfile`** | **Environment** | **환경 구축 정의**<br>AF3(LALM), MACE(Filtering), CLAIR-A, KoBERT 등 필요한 모든 라이브러리를 포함합니다. CUDA 12.1.1 호환성 및 `torchaudio` 충돌 문제를 해결한 최종 이미지입니다. |
 | **`pipeline.py`** | **Generation** | **GT 자동 생성 파이프라인 (CLI)**<br>오디오 폴더를 입력받아 `AF3 캡션 생성` → `MACE 필터링(0.4 Threshold)` → `자동 재시도` 로직을 수행합니다. UI 없이 대량의 오디오로부터 고품질 영어 캡션 데이터를 구축할 때 사용합니다. |
 | **`evaluation_model.py`** | **Evaluation** | **벤치마크 성능 평가 (CLI)**<br>구축된 데이터셋(User GT)을 Ground Truth로 삼아 타 모델(WavCaps, Whisper 등)의 성능을 평가합니다. `SPIDEr-FL`, `FENSE`, `CLAIR-A` 지표를 산출하여 비교 분석합니다. |
 | **`Ui_pipeline.py`** | **UI Backend** | **UI 시연 시스템 연동 모듈**<br>[UI Repository](https://github.com/SogangCapstone10/UI)의 Streamlit 인터페이스와 연결되는 백엔드 로직입니다. 웹에서 오디오를 업로드하고 생성/번역/필터링 과정을 시각적으로 제어할 수 있습니다. |
