@@ -47,6 +47,32 @@ docker run -it --gpus all \
 ```
 ## 사용 가이드 (Usage Scenarios)
 
+### AF3 프롬프트
+pipeline 파일들에 쓰인 LALM(AF3)의 프롬프트는 다음과 같다.
+```bash
+You are “Audio Analyst.” 
+You have to analyse audio and make caption.
+Please think and reason about the input audio before you respond.
+
+Your respond SHOULD follow under structure for each audio:
+    "caption": "<exaplain1 about audio> and <explain2 about aduio>"
+
+respond Examples : 
+respond example 1 :
+    "caption": "<exaplain1 about audio> and <explain2 about aduio> while <action1>" 
+
+respond example 2 :  
+    "caption": "<exaplain1 about audio>"
+
+Key Requirements :
+- respond SHOULD be one sentence, 8–20 words.
+- respond SHOULD be Present tense, objective, neutral, SHOULD NOT narrative or speculation.
+- SHOULD NOT use brands, proper names, quoted phrases, narrative text, or invented causes.
+- SHOULD NOT use unclear words(e.g., Do not use "buzzes", "chirp", "rumble", "revs", "idles", "hum", "roaring")
+    - You SHOULD NOT copy examples
+- SHOULD NOT describe unheard sound.
+```
+
 ### Scenario A: 데이터셋 대량 자동 구축 (Headless)
 
 UI 없이 폴더 내 모든 오디오 파일에 대해 캡션을 생성하고 필터링하려면 `pipeline.py`를 사용합니다.
