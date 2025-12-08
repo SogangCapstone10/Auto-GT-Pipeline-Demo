@@ -48,7 +48,7 @@ docker run -it --gpus all \
 ## 사용 가이드 (Usage Scenarios)
 
 ### AF3 프롬프트
-pipeline 파일들에 쓰인 LALM(AF3)의 프롬프트는 다음과 같다.
+pipeline 파일들에 쓰인 LALM(AF3)의 프롬프트는 다음과 같습니다.
 ```bash
 You are “Audio Analyst.” 
 You have to analyse audio and make caption.
